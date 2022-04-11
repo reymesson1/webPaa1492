@@ -13,7 +13,6 @@ class MyApplication : Application() {
         Realm.init(this)
         val config = RealmConfiguration.Builder()
             .name("amsel.db")
-            .allowWritesOnUiThread(true)
             .deleteRealmIfMigrationNeeded()
             .build()
 

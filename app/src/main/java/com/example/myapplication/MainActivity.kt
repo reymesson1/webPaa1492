@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_item.view.*
 class MainActivity : AppCompatActivity() {
 
     var restAPI = RestAPI()
-
+    var syncViewModel = SyncViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
                 alertDialog.setPositiveButton("Update", DialogInterface.OnClickListener { dialogInterface, i ->
 
-                    restAPI.editMaster(at.id, modal.editTXT.text.toString())
+                    restAPI.editMaster(at._id, modal.editTXT.text.toString())
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 })
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             /*********DELETE**********/
             item.btn_delete.setOnClickListener {
 
-                restAPI.deleteMaster(at.id)
+                restAPI.deleteMaster(at._id)
 
                 var intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
@@ -75,10 +75,11 @@ class MainActivity : AppCompatActivity() {
 
             alertDialog.setPositiveButton("Save", DialogInterface.OnClickListener { dialogInterface, i ->
 
-                restAPI.setMaster(modal.editTXT.text.toString())
+//                restAPI.setMaster(modal.editTXT.text.toString())
+                syncViewModel.setMaster(modal.editTXT.text.toString())
 
-                var intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this,MainActivity::class.java)
+//                startActivity(intent)
 
             })
 

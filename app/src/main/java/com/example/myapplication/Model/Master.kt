@@ -6,7 +6,7 @@ import io.realm.annotations.PrimaryKey
 open class Master : RealmObject() {
 
     @PrimaryKey
-    var id : String = ""
+    var _id : String = ""
     var date : String = ""
     var name : String = ""
 }
