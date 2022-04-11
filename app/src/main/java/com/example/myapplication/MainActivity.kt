@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.example.myapplication.Model.SyncViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_add.view.*
 import kotlinx.android.synthetic.main.layout_item.view.*
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.layout_item.view.*
 class MainActivity : AppCompatActivity() {
 
     var restAPI = RestAPI()
+    var syncViewModel = SyncViewModel()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,7 +77,8 @@ class MainActivity : AppCompatActivity() {
 
             alertDialog.setPositiveButton("Save", DialogInterface.OnClickListener { dialogInterface, i ->
 
-                restAPI.setMaster(modal.editTXT.text.toString())
+//                restAPI.setMaster(modal.editTXT.text.toString())
+                syncViewModel.setMaster(modal.editTXT.text.toString())
 
                 var intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
