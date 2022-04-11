@@ -17,7 +17,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
+        buildConfigField "String", "RealmAppId", "\"application-0-clgge\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,6 +33,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    realm{
+
+        syncEnabled = true
     }
 }
 
